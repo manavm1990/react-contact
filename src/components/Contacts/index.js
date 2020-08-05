@@ -15,8 +15,14 @@ export const Contacts = () => {
   }, [])
 
   const renderCards = () => {
-    return ppl.map((person, i) => <Card person={person} key={i} />)
+    return ppl.map((person, i) =>
+      <Card person={person} key={i} />)
   }
 
-  return renderCards()
+  return (
+    <main>
+      <input type="search" />
+      {renderCards()}
+    </main>
+  )
 }
