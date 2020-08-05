@@ -20,7 +20,7 @@ export const Contacts = () => {
   }
 
   const renderCards = () => {
-    return ppl.map((person, i) =>
+    return ppl.filter(({ name: { last } }) => filterTxt ? last.toLowerCase().startsWith(filterTxt.toLowerCase()) : true ).map((person, i) =>
       <Card person={person} key={i} />)
   }
 
