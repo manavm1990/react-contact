@@ -5,6 +5,7 @@ import {Card} from './Card'
 import api from "api"
 
 export const Contacts = () => {
+  const [filterTxt, setFilterTxt] = useState("")
   const [ppl, setPpl] = useState([])
 
   useEffect(() => {
@@ -14,6 +15,10 @@ export const Contacts = () => {
     })()
   }, [])
 
+  const filterPeople = ({target}) => {
+    setFilterTxt(target.value)
+  }
+
   const renderCards = () => {
     return ppl.map((person, i) =>
       <Card person={person} key={i} />)
@@ -21,7 +26,7 @@ export const Contacts = () => {
 
   return (
     <main>
-      <input type="search" />
+      <input type="search" onChange={filterPeople}/>
       {renderCards()}
     </main>
   )
