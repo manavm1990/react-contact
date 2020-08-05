@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from "react"
+
+import {Card} from './Card'
+
 import api from "api"
 
 export const Contacts = () => {
@@ -11,5 +14,9 @@ export const Contacts = () => {
     })()
   }, [])
 
-  return <p>Contacts</p>
+  const renderCards = () => {
+    return ppl.map((person, i) => <Card person={person} key={i} />)
+  }
+
+  return renderCards()
 }
